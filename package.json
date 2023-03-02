@@ -1,0 +1,26 @@
+{
+  "name": "team-information",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/123sites/Team-Information.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/123sites/Team-Information/issues"
+  },
+  "homepage": "https://github.com/123sites/Team-Information#readme",
+  "dependencies": {
+    "inquirer": "^8.2.5"
+  },
+  "devDependencies": {
+    "jest": "^29.4.3"
+  }
+}
