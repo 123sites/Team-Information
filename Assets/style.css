@@ -1,47 +1,51 @@
-/* font-family: 'Poppins', sans-serif; */ */
+/* font-family: 'Poppins', sans-serif; */ 
+
+* {
+  font-Family: 'Poppins', sans-serif;
+}
 
 h1 {
-  Font-Family: 'Poppins', sans-serif;
-  font-size: 50px;
+  font-size: 40px;
   letter-spacing: 5px;
   text-transform: uppercase;
   font-weight: bolder;
-}
+  color: White;
+  
+
+  /* @mixin gradient-x-three-colors($start-color: $blue, $mid-color: $purple, $color-stop: 50%, $end-color: $red) {
+    background-image: linear-gradient(to right, $start-color, $mid-color $color-stop, $end-color); */
+  }
+
 
 h2 {
-  font-weight: bold;
+  font-weight: bolder;
 }
-
-span {
-
-}
-
 
 body {
-  Font-Family: 'Poppins', sans-serif;
   background-color:#33b8d5;
   color:  #17b2d5;
 }
 
 .jumbotron {
-  background: #9b0c0c;
+  background: #051313;
 }
 
 .employee-card {
-  box-shadow: 5px 3px 9px 1px #4c779c;
+  box-shadow: 10px 5px 12px 3px #4c779c;
 }
 
 .card-header {
-  background: #152C40;
+  background: black;
 }
 
 .card-body {
   color: #465E73;
+  font-weight: bolder;
 }
 
 a {
   color: #17b2d5;
-  font-weight: bold;
+  font-weight: bolder;
 }
 
 a:hover {
