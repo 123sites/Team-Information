@@ -14,49 +14,50 @@ const fs = require("fs");
 // Sets up the email capability.
 const emailValidator = require('email-validator');
 
-const OUTPUT_DIR = path.resolve(__dirname, "htmlTemplates");
-const outputPath = path.join(OUTPUT_DIR, "team.html");
+const __dir = path.resolve(__dist, "");
+const outputPath = path.join(__dir, "team.html");
 
-const render = require("./lib/htmlRenderer");
-const Employee = require("./lib/Employee");
+const render = require("./lib/htmlrender");
+const Employee = require("./lib/employee");
 
+// #23-Ins_Promise-Catch
 let team = [];
 let canAddManager = true;
 const questions = {
   Manager: [
       {
-          type: "input",
-          name: "name",
+          type: 'input',
+          name: 'name',
           message: "What is the manager's name?",
           validate: (value) => {
               if (value) {
                   return true
-              } else { return "Please enter manager's name." }
+              } else { return "Please enter the manager's name." }
           },
       },
       {
-          type: "input",
-          name: "id",
+          type: 'input',
+          name: 'id',
           message: "What is the manager's id?",
           validate: (value) => {
               if (value) {
                   return true
-              } else { return "Please enter manager's id." }
+              } else { return "Please enter the manager's id."}
           },
       },
       {
-          type: "input",
-          name: "email",
+          type: 'input',
+          name: 'email',
           message: "What is the manager's email address?",
           validate: (value) => {
               if (emailValidator.validate(value)) {
                   return true
-              } else { return 'Please enter a valid email address.' }
+              } else { return "Please enter a valid email address." }
           },
       },
       {
-          type: "input",
-          name: "officeNumber",
+          type: 'input',
+          name: 'officeNumber',
           message: "What is the manager's office number?",
           validate: (value) => {
               if (value) {
@@ -65,8 +66,8 @@ const questions = {
           },
       },
       {
-          type: "list",
-          name: "addNew",
+          type: 'list',
+          name: 'addNew',
           message: "Do you want to add another employee",
           choices: ["yes", "no"]
       }
@@ -74,8 +75,8 @@ const questions = {
 
   Engineer: [
       {
-          type: "input",
-          name: "name",
+          type: 'input',
+          name: 'name',
           message: "What is the engineer's name?",
           validate: (value) => {
               if (value) {
@@ -84,8 +85,8 @@ const questions = {
           },
       },
       {
-          type: "input",
-          name: "id",
+          type: 'input',
+          name: 'id',
           message: "What is the engineer's id?",
           validate: (value) => {
               if (value) {
@@ -94,18 +95,18 @@ const questions = {
           },
       },
       {
-          type: "input",
-          name: "email",
+          type: 'input',
+          name: 'email',
           message: "What is the engineer's email address?",
           validate: (value) => {
               if (emailValidator.validate(value)) {
                   return true
-              } else { return 'Please enter a valid email address.' }
+              } else { return "Please enter a valid email address." }
           },
       },
       {
-          type: "input",
-          name: "github",
+          type: 'input',
+          name: 'github',
           message: "What is the engineer's GitHub username?",
           validate: (value) => {
               if (value) {
@@ -114,8 +115,8 @@ const questions = {
           },
       },
       {
-          type: "list",
-          name: "addNew",
+          type: 'list',
+          name: 'addNew',
           message: "Do you want to add another employee",
           choices: ["yes", "no"]
       }
@@ -123,8 +124,8 @@ const questions = {
 
   Intern: [
       {
-          type: "input",
-          name: "name",
+          type: 'input',
+          name: 'name',
           message: "What is the intern's name?",
           validate: (value) => {
               if (value) {
@@ -133,8 +134,8 @@ const questions = {
           },
       },
       {
-          type: "input",
-          name: "id",
+          type: 'input',
+          name:'id',
           message: "What is the intern's id?",
           validate: (value) => {
               if (value) {
@@ -143,8 +144,8 @@ const questions = {
           },
       },
       {
-          type: "input",
-          name: "email",
+          type: 'input',
+          name: 'email',
           message: "What is the intern's email address?",
           validate: (value) => {
               if (emailValidator.validate(value)) {
@@ -153,8 +154,8 @@ const questions = {
           },
       },
       {
-          type: "input",
-          name: "school",
+          type: 'input',
+          name: 'school',
           message: "What school is the intern attending?",
           validate: (value) => {
               if (value) {
@@ -163,8 +164,8 @@ const questions = {
           },
       },
       {
-          type: "list",
-          name: "addNew",
+          type: 'list',
+          name: 'addNew',
           message: "Do you want to add another employee",
           choices: ["yes", "no"]
       }
@@ -173,8 +174,8 @@ const questions = {
 
 const selectMemberType = [
   {
-      type: "list",
-      name: "memberType",
+      type: 'list',
+      name: 'memberType',
       message: "Please choose the role for the employee",
       choices: ["Manager", "Engineer", "Intern"],
   }
@@ -183,13 +184,13 @@ const selectMemberType = [
 function addNewMember() {
   inquirer.prompt(selectMemberType)
       .then(answer => {
-          // console.log(answer.memberType);
+          console.log(answer.memberType);
 
           if (answer.memberType === "Manager") {
               if (canAddManager) {
                   inquirer.prompt(questions.Manager)
                       .then(answer => {
-                          //save employee info
+                          // Save employee information
                           const manager = new Manager
                               (
                                   answer.name,
@@ -198,7 +199,7 @@ function addNewMember() {
                                   answer.officeNumber
                               );
 
-                          //add info to team array if manager doesn't exist
+                          // Add information to team array if manager doesn't exist.
                           team.push(manager);
                           canAddManager = false;
                           if (answer.addNew === "yes") {
@@ -208,7 +209,7 @@ function addNewMember() {
                           }
                       });
               } else {
-                  //only 1 manager
+                  // Only 1 manager
                   console.log("There is a manager already!")
                   addNewMember();
               }
@@ -217,7 +218,7 @@ function addNewMember() {
           } else if (answer.memberType === "Engineer") {
               inquirer.prompt(questions.Engineer)
                   .then(answer => {
-                      //save ee info
+                      // Save information
                       const engineer = new Engineer
                           (
                               answer.name,
@@ -225,7 +226,7 @@ function addNewMember() {
                               answer.email,
                               answer.github
                           );
-                      //add info to team array
+                      // Add information to the team array
                       team.push(engineer);
                       if (answer.addNew === "yes") {
                           addNewMember();
@@ -237,7 +238,7 @@ function addNewMember() {
           } else if (answer.memberType === "Intern") {
               inquirer.prompt(questions.Intern)
                   .then(answer => {
-                      //save ee info
+                      // Save information
                       const intern = new Intern
                           (
                               answer.name,
@@ -245,7 +246,7 @@ function addNewMember() {
                               answer.email,
                               answer.school
                           );
-                      //add info to team array
+                      // Add information to the team array
                       team.push(intern);
                       if (answer.addNew === "yes") {
                           addNewMember();
