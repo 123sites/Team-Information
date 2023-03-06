@@ -12,15 +12,15 @@ const path = require("path");
 // The fs module enables interacting with the file system in a way modeled on standard POSIX functions.
 const fs = require("fs");
 // Sets up the email capability.
-const emailValidator = require('email-validator');
+// const emailValidator = require('email-validator');
 
-const __dir = path.resolve(__dist, "");
+const __dir = path.resolve(__dirname, "./__dist");
 const outputPath = path.join(__dir, "team.html");
 
-const render = require("./lib/htmlrender");
+const render = require("./src/htmlrender");
 const Employee = require("./lib/employee");
 
-// #23-Ins_Promise-Catch
+// 
 let team = [];
 let canAddManager = true;
 const questions = {
@@ -49,11 +49,11 @@ const questions = {
           type: 'input',
           name: 'email',
           message: "What is the manager's email address?",
-          validate: (value) => {
-              if (emailValidator.validate(value)) {
-                  return true
-              } else { return "Please enter a valid email address." }
-          },
+        //   validate: (value) => {
+        //       if (emailValidator.validate(value)) {
+        //           return true
+        //       } else { return "Please enter a valid email address." }
+        //   },
       },
       {
           type: 'input',
@@ -98,11 +98,11 @@ const questions = {
           type: 'input',
           name: 'email',
           message: "What is the engineer's email address?",
-          validate: (value) => {
-              if (emailValidator.validate(value)) {
-                  return true
-              } else { return "Please enter a valid email address." }
-          },
+        //   validate: (value) => {
+        //       if (emailValidator.validate(value)) {
+        //           return true
+        //       } else { return "Please enter a valid email address." }
+        //   },
       },
       {
           type: 'input',
@@ -147,11 +147,11 @@ const questions = {
           type: 'input',
           name: 'email',
           message: "What is the intern's email address?",
-          validate: (value) => {
-              if (emailValidator.validate(value)) {
-                  return true
-              } else { return 'Please enter a valid email address.' }
-          },
+        //   validate: (value) => {
+        //       if (emailValidator.validate(value)) {
+        //           return true
+        //       } else { return 'Please enter a valid email address.' }
+        //   },
       },
       {
           type: 'input',
@@ -183,6 +183,7 @@ const selectMemberType = [
 
 function addNewMember() {
   inquirer.prompt(selectMemberType)
+  // Promise
       .then(answer => {
           console.log(answer.memberType);
 
