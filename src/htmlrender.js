@@ -1,5 +1,11 @@
-// Rendering turns website code into the interactive pages users see when they visit a website.
+// Rendering turns website code into the interactive pages 
+// users see when they visit a website.
+
 // Path = Extracts the filename from a file path:
+
+// What is the use of require in js?
+// The JavaScript require function facilitates a way 
+// to include JavaScript modules in your code. 
 const path = require("path");
 const fs = require("fs");
 
@@ -8,14 +14,26 @@ const templatesDir = path.resolve(__dirname, "../__dist");
 const render = employees => {
   const html = [];
 
+  // The push() method adds one or more elements to the end of an array 
+  // and returns the new length of the array.
   html.push(...employees
+    // The filter() method creates a shallow copy of a portion 
+    // of a given array, filtered down to just the elements from 
+    // the given array that pass the test implemented by the provided 
+    // function.
     .filter(employee => employee.getRole() === "Manager")
+    // The map() method creates a new array populated with the results of 
+    // calling a provided function on every element in the calling array.
     .map(manager => renderManager(manager))
   );
+
+  // Show what's on the employee & engineer templates
   html.push(...employees
     .filter(employee => employee.getRole() === "Engineer")
     .map(engineer => renderEngineer(engineer))
   );
+
+  // Show what's on the employee & intern templates
   html.push(...employees
     .filter(employee => employee.getRole() === "Intern")
     .map(intern => renderIntern(intern))
@@ -25,6 +43,7 @@ const render = employees => {
 
 };
 
+// Manager template
 const renderManager = manager => {
   let template = `<div class="card employee-card mr-4 ml-4 mb-3">
   <div class="card-header text-center">
@@ -42,6 +61,7 @@ const renderManager = manager => {
   return template;
 };
 
+// Engineer template
 const renderEngineer = engineer => {
   let template = `<div class="card employee-card mr-4 ml-4 mb-3">
   <div class="card-header text-center">
@@ -60,6 +80,7 @@ const renderEngineer = engineer => {
   return template;
 };
 
+// Intern template
 const renderIntern = intern => {
   let template = `<div class="card employee-card mr-4 ml-4 mb-3">
   <div class="card-header text-center">
@@ -77,6 +98,7 @@ const renderIntern = intern => {
   return template;
 };
 
+// Show main.html
 const renderMain = html => {
   const template = fs.readFileSync(path.resolve(templatesDir, "main.html"), "utf8");
   return replacePlaceholders(template, "team", html);
