@@ -40,13 +40,13 @@ const renderManager = manager => {
   let template = `<div class="card employee-card mr-4 ml-4 mb-3">
   <div class="card-header text-center">
       <h2 class="card-title">${manager.getName()}</h2>
-      <h3 class="card-title"><i class="fas fa-mug-hot mr-2"></i>{{ role }}</h3>
+      <h3 class="card-title"><i class="fas fa-mug-hot mr-2"></i>${manager.getRole()}</h3>
   </div>
   <div class="card-body">
       <ul class="list-group">
-          <li class="list-group-item">ID: ${id.get()}</li>
-          <li class="list-group-item">Email: <a href="mailto:{{ email }}">{{ email }}</a></li>
-          <li class="list-group-item">Office number: ${number.getOfficeNumber()}</li>
+          <li class="list-group-item">ID: ${manager.getId()}</li>
+          <li class="list-group-item">Email: <a href="mailto:"${manager.getEmail()}></a></li>
+          <li class="list-group-item">Office number: ${manager.getOfficeNumber()}</li>
       </ul>
   </div>
 </div>`
@@ -66,13 +66,13 @@ const renderEngineer = engineer => {
   let template = `<div class="card employee-card mr-4 ml-4 mb-3">
   <div class="card-header text-center">
       <h2 class="card-title">${engineer.getName()}</h2>
-      <h3 class="card-title"><i class="fas fa-glasses mr-2"></i>{engineer.getRole()}</h3>
+      <h3 class="card-title"><i class="fas fa-glasses mr-2"></i>${engineer.getRole()}</h3>
   </div>
   <div class="card-body">
       <ul class="list-group">
-          <li class="list-group-item">ID: ${id.getID()}</li>
-          <li class="list-group-item">Email: <a href="mailto:{{ email }}">{{ email }}</a></li>
-          <li class="list-group-item">GitHub: <a href="https://github.com/{{ github }}" target="_blank"
+          <li class="list-group-item">ID: ${engineer.getId()}</li>
+          <li class="list-group-item">Email: <a href="mailto:${engineer.getEmail()}">{{ email }}</a></li>
+          <li class="list-group-item">GitHub: <a href="https://github.com/${engineer.getGithub()}" target="_blank"
                   rel="noopener noreferrer">{{ github }}</a></li>
       </ul>
   </div>
@@ -88,8 +88,8 @@ const renderIntern = intern => {
   </div>
   <div class="card-body">
       <ul class="list-group">
-          <li class="list-group-item">ID: ${id.getID()}</li>
-          <li class="list-group-item">Email: <a href="mailto:{{ email }}">{{ email }}</a></li>
+          <li class="list-group-item">ID: ${intern.getId()}</li>
+          <li class="list-group-item">Email: <a href="mailto:${intern.getEmail()}"</a></li>
           <li class="list-group-item">School: ${intern.getSchool()}</li>
       </ul>
   </div>
