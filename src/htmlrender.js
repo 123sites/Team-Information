@@ -45,7 +45,7 @@ const renderManager = manager => {
   <div class="card-body">
       <ul class="list-group">
           <li class="list-group-item">ID: ${manager.getId()}</li>
-          <li class="list-group-item">Email: <a href="mailto:"${manager.getEmail()}></a></li>
+          <li class="list-group-item">Email: <a href="mailto:${manager.getEmail()}">S</a></li>
           <li class="list-group-item">Office number: ${manager.getOfficeNumber()}</li>
       </ul>
   </div>
@@ -71,9 +71,9 @@ const renderEngineer = engineer => {
   <div class="card-body">
       <ul class="list-group">
           <li class="list-group-item">ID: ${engineer.getId()}</li>
-          <li class="list-group-item">Email: <a href="mailto:${engineer.getEmail()}">{{ email }}</a></li>
+          <li class="list-group-item">Email: <a href="mailto:${engineer.getEmail()}"></a></li>
           <li class="list-group-item">GitHub: <a href="https://github.com/${engineer.getGithub()}" target="_blank"
-                  rel="noopener noreferrer">{{ github }}</a></li>
+                  rel="noopener noreferrer">${engineer.getGithub()}</a></li>
       </ul>
   </div>
 </div>`
@@ -88,9 +88,9 @@ const renderIntern = intern => {
   </div>
   <div class="card-body">
       <ul class="list-group">
-          <li class="list-group-item">ID: ${intern.getId()}</li>
-          <li class="list-group-item">Email: <a href="mailto:${intern.getEmail()}"</a></li>
-          <li class="list-group-item">School: ${intern.getSchool()}</li>
+      <li class="list-group-item">ID: ${intern.getId()}</li>
+      <li class="list-group-item">Email: <a href="mailto:${intern.getEmail()}"></a></li>
+      <li class="list-group-item">School: ${intern.getSchool()}</li>
       </ul>
   </div>
 </div>`

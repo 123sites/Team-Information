@@ -48,9 +48,11 @@
   <div class="card-body">
       <ul class="list-group">
           <li class="list-group-item">ID: 2</li>
-          <li class="list-group-item">Email: <a href="mailto:b@gmail.com">{{ email }}</a></li>
+          <li class="list-group-item">Email: <a href="mailto:b@gmail.com">()</a></li>
           <li class="list-group-item">GitHub: <a href="https://github.com/1" target="_blank"
-                  rel="noopener noreferrer">{{ github }}</a></li>
+                  rel="noopener noreferrer">${employee.getGithub()}</a></li>
+                  <!-- rel="noopener noreferrer">https://github.com/${engineer.getGithub()}</a></li>
+> -->
       </ul>
   </div>
 </div><div class="card employee-card mr-4 ml-4 mb-3">
@@ -61,7 +63,7 @@
   <div class="card-body">
       <ul class="list-group">
           <li class="list-group-item">ID: 7</li>
-          <li class="list-group-item">Email: <a href="mailto:n@gmail.com"</a></li>
+          <li class="list-group-item">Email: <a href="mailto:n@gmail.com"></a></li>
           <li class="list-group-item">School: r</li>
       </ul>
   </div>
