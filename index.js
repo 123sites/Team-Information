@@ -1,14 +1,20 @@
+
+// Uses manager code
 const Manager = require("./lib/manager");
+// Uses engineer code
 const Engineer = require("./lib/engineer");
+// Uses intern code
 const Intern = require("./lib/intern");
 // Gets inquirer to work.
 const inquirer = require("inquirer");
 // The path module provides utilities for working with file and directory paths. It can be accessed
 const path = require("path");
+// The fs module enables interacting with the file system in a way modeled on standard POSIX functions.
 const fs = require("fs");
+// Sets up the email capability.
 const emailValidator = require('email-validator');
 
-const OUTPUT_DIR = path.resolve(__dirname, "output");
+const OUTPUT_DIR = path.resolve(__dirname, "htmlTemplates");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
