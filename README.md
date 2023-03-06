@@ -2,7 +2,10 @@
 
 ## Description ✏️
 
-This is.................. 
+This is an object-oriented program that generates a webpage
+that displays the basic information for a manager's team.
+It will give a manager quick access to the emails and GitHub
+profiles of their team members.
 
 ## Installation 🔑
 
@@ -18,7 +21,8 @@ The link to the Markdown-Creator is at:
 
 ## Usage
 
-1. This application will..............................................
+This can be used by a manager to help them access information that
+they need in-regards to the members of their team.
 
 ## Video Demonstration 🎯
 
