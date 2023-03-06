@@ -25,17 +25,6 @@ const render = employees => {
 
 };
 
-// UTF-8 is a character encoding system. It lets you represent characters as ASCII text, 
-// while still allowing for international characters, such as Chinese characters.
-// const renderManager = manager => {
-//   let template = fs.readFileSync(path.resolve(templatesDir, "manager.html"), "utf8");
-//   template = replacePlaceholders(template, "name", manager.getName());
-//   template = replacePlaceholders(template, "role", manager.getRole());
-//   template = replacePlaceholders(template, "email", manager.getEmail());
-//   template = replacePlaceholders(template, "id", manager.getId());
-//   template = replacePlaceholders(template, "officeNumber", manager.getOfficeNumber());
-//   return template;
-// };
 const renderManager = manager => {
   let template = `<div class="card employee-card mr-4 ml-4 mb-3">
   <div class="card-header text-center">
@@ -53,15 +42,6 @@ const renderManager = manager => {
   return template;
 };
 
-// const renderEngineer = engineer => {
-//   let template = fs.readFileSync(path.resolve(templatesDir, "engineer.html"), "utf8");
-//   template = replacePlaceholders(template, "name", engineer.getName());
-//   template = replacePlaceholders(template, "role", engineer.getRole());
-//   template = replacePlaceholders(template, "email", engineer.getEmail());
-//   template = replacePlaceholders(template, "id", engineer.getId());
-//   template = replacePlaceholders(template, "github", engineer.getGithub());
-//   return template;
-// };
 const renderEngineer = engineer => {
   let template = `<div class="card employee-card mr-4 ml-4 mb-3">
   <div class="card-header text-center">
