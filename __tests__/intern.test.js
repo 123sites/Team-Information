@@ -2,18 +2,24 @@ const Intern = require("../lib/intern");
 
 test("Can set school via constructor", () => {
   const testValue = "UofA";
-  const e = new Intern("Foo", 1, "test@test.com", testValue);
+  // Foo is an intentionally meaningless placeholder 
+  // word often used in computer programming.
+  const e = new Intern("Foo", 1, "cfreitas12345+1@gmail.com", testValue);
   expect(e.school).toBe(testValue);
 });
 
 test("getRole() should return \"Intern\"", () => {
   const testValue = "Intern";
-  const e = new Intern("Foo", 1, "test@test.com", "UofA");
+  // Foo is an intentionally meaningless placeholder 
+  // word often used in computer programming.
+  const e = new Intern("Foo", 1, "cfreitas12345+1@gmail.com", "UofA");
   expect(e.getRole()).toBe(testValue);
 });
 
 test("Can get school via getSchool()", () => {
   const testValue = "UofA";
-  const e = new Intern("Foo", 1, "test@test.com", testValue);
+  // Foo is an intentionally meaningless placeholder 
+  // word often used in computer programming.
+  const e = new Intern("Foo", 1, "cfreitas12345+1@gmail.com", testValue);
   expect(e.getSchool()).toBe(testValue);
 });

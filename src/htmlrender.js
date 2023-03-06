@@ -44,9 +44,9 @@ const renderManager = manager => {
   </div>
   <div class="card-body">
       <ul class="list-group">
-          <li class="list-group-item">ID: {{ id }}</li>
+          <li class="list-group-item">ID: ${id.get()}</li>
           <li class="list-group-item">Email: <a href="mailto:{{ email }}">{{ email }}</a></li>
-          <li class="list-group-item">Office number: {{ officeNumber }}</li>
+          <li class="list-group-item">Office number: ${number.getOfficeNumber()}</li>
       </ul>
   </div>
 </div>`
@@ -66,11 +66,11 @@ const renderEngineer = engineer => {
   let template = `<div class="card employee-card mr-4 ml-4 mb-3">
   <div class="card-header text-center">
       <h2 class="card-title">${engineer.getName()}</h2>
-      <h3 class="card-title"><i class="fas fa-glasses mr-2"></i>{{ role }}</h3>
+      <h3 class="card-title"><i class="fas fa-glasses mr-2"></i>{engineer.getRole()}</h3>
   </div>
   <div class="card-body">
       <ul class="list-group">
-          <li class="list-group-item">ID: {{ id }}</li>
+          <li class="list-group-item">ID: ${id.getID()}</li>
           <li class="list-group-item">Email: <a href="mailto:{{ email }}">{{ email }}</a></li>
           <li class="list-group-item">GitHub: <a href="https://github.com/{{ github }}" target="_blank"
                   rel="noopener noreferrer">{{ github }}</a></li>
@@ -84,13 +84,13 @@ const renderIntern = intern => {
   let template = `<div class="card employee-card mr-4 ml-4 mb-3">
   <div class="card-header text-center">
       <h2 class="card-title">${intern.getName()}</h2>
-      <h3 class="card-title"><i class="fas fa-user-graduate mr-2"></i>{{ role }}</h3>
+      <h3 class="card-title"><i class="fas fa-user-graduate mr-2"></i>${intern.getRole()}</h3>
   </div>
   <div class="card-body">
       <ul class="list-group">
-          <li class="list-group-item">ID: {{ id }}</li>
+          <li class="list-group-item">ID: ${id.getID()}</li>
           <li class="list-group-item">Email: <a href="mailto:{{ email }}">{{ email }}</a></li>
-          <li class="list-group-item">School: {{ school }}</li>
+          <li class="list-group-item">School: ${intern.getSchool()}</li>
       </ul>
   </div>
 </div>`
