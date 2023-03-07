@@ -1,50 +1,52 @@
-// Rendering turns website code into the interactive pages 
+// Rendering turns website code into the interactive pages
 // users see when they visit a website.
 
 // Path = Extracts the filename from a file path:
 
 // What is the use of require in js?
-// The JavaScript require function facilitates a way 
-// to include JavaScript modules in your code. 
+// The JavaScript require function facilitates a way
+// to include JavaScript modules in your code.
 const path = require("path");
 const fs = require("fs");
 
 const templatesDir = path.resolve(__dirname, "../__dist");
 
-const render = employees => {
+const render = (employees) => {
   const html = [];
 
-  // The push() method adds one or more elements to the end of an array 
+  // The push() method adds one or more elements to the end of an array
   // and returns the new length of the array.
-  html.push(...employees
-    // The filter() method creates a shallow copy of a portion 
-    // of a given array, filtered down to just the elements from 
-    // the given array that pass the test implemented by the provided 
-    // function.
-    .filter(employee => employee.getRole() === "Manager")
-    // The map() method creates a new array populated with the results of 
-    // calling a provided function on every element in the calling array.
-    .map(manager => renderManager(manager))
+  html.push(
+    ...employees
+      // The filter() method creates a shallow copy of a portion
+      // of a given array, filtered down to just the elements from
+      // the given array that pass the test implemented by the provided
+      // function.
+      .filter((employee) => employee.getRole() === "Manager")
+      // The map() method creates a new array populated with the results of
+      // calling a provided function on every element in the calling array.
+      .map((manager) => renderManager(manager))
   );
 
   // Show what's on the employee & engineer templates
-  html.push(...employees
-    .filter(employee => employee.getRole() === "Engineer")
-    .map(engineer => renderEngineer(engineer))
+  html.push(
+    ...employees
+      .filter((employee) => employee.getRole() === "Engineer")
+      .map((engineer) => renderEngineer(engineer))
   );
 
   // Show what's on the employee & intern templates
-  html.push(...employees
-    .filter(employee => employee.getRole() === "Intern")
-    .map(intern => renderIntern(intern))
+  html.push(
+    ...employees
+      .filter((employee) => employee.getRole() === "Intern")
+      .map((intern) => renderIntern(intern))
   );
 
   return renderMain(html.join(""));
-
 };
 
 // Manager template
-const renderManager = manager => {
+const renderManager = (manager) => {
   let template = `<div class="card employee-card mr-4 ml-4 mb-3">
   <div class="card-header text-center">
       <h2 class="card-title">${manager.getName()}</h2>
@@ -57,12 +59,12 @@ const renderManager = manager => {
           <li class="list-group-item">Office number: ${manager.getOfficeNumber()}</li>
       </ul>
   </div>
-</div>`
+</div>`;
   return template;
 };
 
 // Engineer template
-const renderEngineer = engineer => {
+const renderEngineer = (engineer) => {
   let template = `<div class="card employee-card mr-4 ml-4 mb-3">
   <div class="card-header text-center">
       <h2 class="card-title">${engineer.getName()}</h2>
@@ -76,12 +78,12 @@ const renderEngineer = engineer => {
                   rel="noopener noreferrer">${engineer.getGithub()}</a></li>
       </ul>
   </div>
-</div>`
+</div>`;
   return template;
 };
 
 // Intern template
-const renderIntern = intern => {
+const renderIntern = (intern) => {
   let template = `<div class="card employee-card mr-4 ml-4 mb-3">
   <div class="card-header text-center">
       <h2 class="card-title">${intern.getName()}</h2>
@@ -94,20 +96,50 @@ const renderIntern = intern => {
       <li class="list-group-item">School: ${intern.getSchool()}</li>
       </ul>
   </div>
-</div>`
+</div>`;
   return template;
 };
 
-// Show main.html
-const renderMain = html => {
-  const template = fs.readFileSync(path.resolve(templatesDir, "main.html"), "utf8");
-  return replacePlaceholders(template, "team", html);
+renderMain = (data) => {
+  htmlArray = [];
+  for (let i = 0; i < data.length; i++) {
+    const employee = data[i];
+    const role = employee.getRole();
+
+    if (role === "Manager") {
+      const displayManager = manager(employee);
+
+      htmlArray.push(displayManager);
+    }
+    if (role === "Engineer") {
+      const displayEngineer = engineer(employee);
+
+      htmlArray.push(displayEngineer);
+    }
+    if (role === "Intern") {
+      const displayIntern = intern(employee);
+
+      htmlArray.push(displayIntern);
+    }
+    const display = HTMLarray.join("");
+
+    const show = showPage(display);
+    return show;
+  }
 };
 
-// RegExp Object = A regular expression is a pattern of characters. 
-const replacePlaceholders = (template, placeholder, value) => {
-  const pattern = new RegExp("{{ " + placeholder + " }}", "gm");
-  return template.replace(pattern, value);
-};
+return render;
 
-module.exports = render;
+// // Show main.html
+// const renderMain = html => {
+//   const template = fs.readFileSync(path.resolve(templatesDir, "main.html"), "utf8");
+//   return replacePlaceholders(template, "team", html);
+// };
+
+// // RegExp Object = A regular expression is a pattern of characters.
+// const replacePlaceholders = (template, placeholder, value) => {
+//   const pattern = new RegExp("{{ " + placeholder + " }}", "gm");
+//   return template.replace(pattern, value);
+// };
+
+// module.exports = render;

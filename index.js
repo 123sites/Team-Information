@@ -29,21 +29,21 @@ const questions = {
           type: 'input',
           name: 'name',
           message: "What is the manager's name?",
-          validate: (value) => {
-              if (value) {
-                  return true
-              } else { return "Please enter the manager's name." }
-          },
+        //   validate: (value) => {
+        //       if (value) {
+        //           return true
+        //       } else { return "Please enter the manager's name." }
+        //   },
       },
       {
           type: 'input',
           name: 'id',
           message: "What is the manager's id?",
-          validate: (value) => {
-              if (value) {
-                  return true
-              } else { return "Please enter the manager's id."}
-          },
+        //   validate: (value) => {
+        //       if (value) {
+        //           return true
+        //       } else { return "Please enter the manager's id."}
+        //   },
       },
       {
           type: 'input',
@@ -59,11 +59,11 @@ const questions = {
           type: 'input',
           name: 'officeNumber',
           message: "What is the manager's office number?",
-          validate: (value) => {
-              if (value) {
-                  return true
-              } else { return "Please enter manager's office number." }
-          },
+        //   validate: (value) => {
+        //       if (value) {
+        //           return true
+        //       } else { return "Please enter manager's office number." }
+        //   },
       },
       {
           type: 'list',
@@ -78,21 +78,21 @@ const questions = {
           type: 'input',
           name: 'name',
           message: "What is the engineer's name?",
-          validate: (value) => {
-              if (value) {
-                  return true
-              } else { return "Please enter engineer's name." }
-          },
+        //   validate: (value) => {
+        //       if (value) {
+        //           return true
+        //       } else { return "Please enter engineer's name." }
+        //   },
       },
       {
           type: 'input',
           name: 'id',
           message: "What is the engineer's id?",
-          validate: (value) => {
-              if (value) {
-                  return true
-              } else { return "Please enter engineer's id." }
-          },
+        //   validate: (value) => {
+        //       if (value) {
+        //           return true
+        //       } else { return "Please enter engineer's id." }
+        //   },
       },
       {
           type: 'input',
@@ -108,11 +108,11 @@ const questions = {
           type: 'input',
           name: 'github',
           message: "What is the engineer's GitHub username?",
-          validate: (value) => {
-              if (value) {
-                  return true
-              } else { return "Please enter engineer's GitHub." }
-          },
+        //   validate: (value) => {
+        //       if (value) {
+        //           return true
+        //       } else { return "Please enter engineer's GitHub." }
+        //   },
       },
       {
           type: 'list',
@@ -127,21 +127,21 @@ const questions = {
           type: 'input',
           name: 'name',
           message: "What is the intern's name?",
-          validate: (value) => {
-              if (value) {
-                  return true
-              } else { return "Please enter intern's name." }
-          },
+        //   validate: (value) => {
+        //       if (value) {
+        //           return true
+        //       } else { return "Please enter intern's name." }
+        //   },
       },
       {
           type: 'input',
           name:'id',
           message: "What is the intern's id?",
-          validate: (value) => {
-              if (value) {
-                  return true
-              } else { return "Please enter intern's id." }
-          },
+        //   validate: (value) => {
+        //       if (value) {
+        //           return true
+        //       } else { return "Please enter intern's id." }
+        //   },
       },
       {
           type: 'input',
@@ -157,11 +157,11 @@ const questions = {
           type: 'input',
           name: 'school',
           message: "What school is the intern attending?",
-          validate: (value) => {
-              if (value) {
-                  return true
-              } else { return "Please enter the name of school." }
-          },
+        //   validate: (value) => {
+        //       if (value) {
+        //           return true
+        //       } else { return "Please enter the name of school." }
+        //   },
       },
       {
           type: 'list',
@@ -181,6 +181,8 @@ const selectMemberType = [
   }
 ];
 
+
+
 function addNewMember() {
   inquirer.prompt(selectMemberType)
   // Promise
@@ -190,6 +192,7 @@ function addNewMember() {
           if (answer.memberType === "Manager") {
               if (canAddManager) {
                   inquirer.prompt(questions.Manager)
+                    // Promise
                       .then(answer => {
                           // Save employee information
                           const manager = new Manager
@@ -218,6 +221,7 @@ function addNewMember() {
 
           } else if (answer.memberType === "Engineer") {
               inquirer.prompt(questions.Engineer)
+                // Promise
                   .then(answer => {
                       // Save information
                       const engineer = new Engineer
@@ -238,6 +242,7 @@ function addNewMember() {
 
           } else if (answer.memberType === "Intern") {
               inquirer.prompt(questions.Intern)
+              
                   .then(answer => {
                       // Save information
                       const intern = new Intern
