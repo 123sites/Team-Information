@@ -29,7 +29,7 @@ test("Can set id via constructor argument", () => {
 });
 
 test("Can set email via constructor argument", () => {
-  const testValue = "cfreitas12345+1@gmail.com";
+  const testValue = "test@example.com";
   // Foo is an intentionally meaningless placeholder 
   // word often used in computer programming.
   const e = new Employee("Foo", 1, testValue);
@@ -60,7 +60,7 @@ test("Can get id via getId()", () => {
 });
 
 test("Can get email via getEmail()", () => {
-  const testValue = "cfreitas12345+1@gmail.com";
+  const testValue = "test@example.com";
   // Foo is an intentionally meaningless placeholder 
   // word often used in computer programming.
   const e = new Employee("Foo", 1, testValue);
@@ -72,7 +72,7 @@ test("Can get email via getEmail()", () => {
 
 test("getRole() should return \"Employee\"", () => {
   const testValue = "Employee";
-  const e = new Employee("Bob", 1, "cfreitas12345+1@gmail.com");
+  const e = new Employee("Bob", 1, "test@example.com");
   // Jest: Use .toBe to compare primitive values or to check referential identity of object 
   // instances. It calls Object.is to compare values, which is even better for testing 
   // than === strict equality operator.
