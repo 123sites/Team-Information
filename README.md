@@ -21,10 +21,12 @@ You can find the link to the repository at:
 This can be used by a manager to help them access information that
 they need in-regards to the members of their team.
 
-## Video Demonstration 🎯
+## Video Demonstration Via Assets Link 🎯
 
 [Click here to see the video](./Assets/images/Video-Team-Information.mp4)
-[Site](https://watch.screencastify.com/v/7cNWg23KbT2zEgb6J8Ii)
+
+## Same Video on the Screencastify Website 🎯
+[Click here to see the video](https://watch.screencastify.com/v/7cNWg23KbT2zEgb6J8Ii)
 
 ## Screenshot 🎯
 
