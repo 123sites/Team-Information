@@ -24,7 +24,7 @@ they need in-regards to the members of their team.
 ## Video Demonstration 🎯
 
 [Click here to see the video](./Assets/images/Video-Team-Information.mp4)
-[](https://watch.screencastify.com/v/7cNWg23KbT2zEgb6J8Ii)
+[Site](https://watch.screencastify.com/v/7cNWg23KbT2zEgb6J8Ii)
 
 ## Screenshot 🎯
 
