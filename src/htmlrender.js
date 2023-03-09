@@ -12,11 +12,15 @@ const fs = require("fs");
 const templatesDir = path.resolve(__dirname, "../__dist");
 
 const render = (employees) => {
-  const html = [];
+
+  const html = []
 
   // The push() method adds one or more elements to the end of an array
   // and returns the new length of the array.
   html.push(
+    // The Spread (...) Operator
+    // The ... operator expands an iterable into more elements:
+    // The ... operator can be used to expand an iterable into more arguments for function calls:
     ...employees
       // The filter() method creates a shallow copy of a portion
       // of a given array, filtered down to just the elements from
@@ -27,7 +31,6 @@ const render = (employees) => {
       // calling a provided function on every element in the calling array.
       .map((manager) => renderManager(manager))
   );
-
   // Show what's on the employee & engineer templates
   html.push(
     ...employees
@@ -41,7 +44,7 @@ const render = (employees) => {
       .filter((employee) => employee.getRole() === "Intern")
       .map((intern) => renderIntern(intern))
   );
-
+  console.log(html.join(""));
   return renderMain(html.join(""));
 };
 
@@ -55,7 +58,7 @@ const renderManager = (manager) => {
   <div class="card-body">
       <ul class="list-group">
           <li class="list-group-item">ID: ${manager.getId()}</li>
-          <li class="list-group-item">Email: <a href="mailto:${manager.getEmail()}">S</a></li>
+          <li class="list-group-item">Email: <a href="mailto:${manager.getEmail()}">${manager.getEmail()}</a></li>
           <li class="list-group-item">Office number: ${manager.getOfficeNumber()}</li>
       </ul>
   </div>
@@ -73,9 +76,9 @@ const renderEngineer = (engineer) => {
   <div class="card-body">
       <ul class="list-group">
           <li class="list-group-item">ID: ${engineer.getId()}</li>
-          <li class="list-group-item">Email: <a href="mailto:${engineer.getEmail()}"></a></li>
+          <li class="list-group-item">Email: <a href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a></li>
           <li class="list-group-item">GitHub: <a href="https://github.com/${engineer.getGithub()}" target="_blank"
-                  rel="noopener noreferrer">${engineer.getGithub()}</a></li>
+          rel="noopener noreferrer">${engineer.getGithub()}</a></li> 
       </ul>
   </div>
 </div>`;
@@ -92,7 +95,7 @@ const renderIntern = (intern) => {
   <div class="card-body">
       <ul class="list-group">
       <li class="list-group-item">ID: ${intern.getId()}</li>
-      <li class="list-group-item">Email: <a href="mailto:${intern.getEmail()}"></a></li>
+      <li class="list-group-item">Email: <a href="mailto:${intern.getEmail()}">${intern.getEmail()}</a></li>
       <li class="list-group-item">School: ${intern.getSchool()}</li>
       </ul>
   </div>
@@ -100,35 +103,30 @@ const renderIntern = (intern) => {
   return template;
 };
 
-renderMain = (data) => {
-  htmlArray = [];
-  for (let i = 0; i < data.length; i++) {
-    const employee = data[i];
-    const role = employee.getRole();
 
-    if (role === "Manager") {
-      const displayManager = manager(employee);
+// TODO: Create a function to write onto the html file
+// function createFile(fileName, data) {
+//   // Writes to the file with anything you pass in as process.argv[2]
+//   fs.writeFile(fileName, data, (err) =>
+//     // fs.writeFile(team.html, data, (err) =>
+//     err ? console.error(err) : console.log("Success!")
+//   );
+// }
 
-      htmlArray.push(displayManager);
-    }
-    if (role === "Engineer") {
-      const displayEngineer = engineer(employee);
+// // TODO: Create a function to initialize app
+// function init() {
 
-      htmlArray.push(displayEngineer);
-    }
-    if (role === "Intern") {
-      const displayIntern = intern(employee);
+// inquirer.prompt(render).then((answers) => {
+//     console.log(answers);
+//     const teamHTML = templatesDir(answers);
+//     // Creates the file to write onto team.html
+//     createFile("../team.html", teamHTML);
+//   });
+// }
 
-      htmlArray.push(displayIntern);
-    }
-    const display = HTMLarray.join("");
+// // Function call to initialize app
+// init();
 
-    const show = showPage(display);
-    return show;
-  }
-};
-
-return render;
 
 // // Show main.html
 // const renderMain = html => {
@@ -143,3 +141,47 @@ return render;
 // };
 
 // module.exports = render;
+
+
+// // Show main.html
+const renderMain = (html) => {
+  return `<!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <title>Our Team</title>
+      <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+        crossorigin="anonymous"
+      />
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+      <link
+        href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins&display=swap"
+        rel="stylesheet"
+      />
+      <link rel="stylesheet" href="./Assets/style.css">
+    </head>
+    <body>
+      <div class="container-fluid">
+          <div class="row">
+              <div class="col-12 jumbotron mb-3 team-heading">
+                  <h1 class="text-center">Our Team</h1>
+              </div>
+          </div>
+      </div>
+      <div class="container">
+          <div class="row">
+              <div class="team-area col-12 d-flex justify-content-center mt-5">
+                  ${html}
+              </div>
+          </div>
+      </div>
+  </body>
+  
+  </html>`
+}
+module.exports = render;
