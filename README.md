@@ -26,11 +26,11 @@ they need in-regards to the members of their team.
 
 ## Video Demonstration 🎯
 
-[Click here to see the video]()
+[Click here to see the video](./Assets/images/Video-Team-Information.mp4)
 
 ## Screenshot 🎯
 
-[Click here to see the screenshot]()
+[Click here to see the screenshot](./Assets/images/Screenshot___dist_team.html.png)
 
 ## Credits 👈
 

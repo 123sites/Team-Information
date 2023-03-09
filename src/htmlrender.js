@@ -1,19 +1,21 @@
+// THEN an HTML file is generated that displays a nicely formatted
+// team roster based on user input
+
 // Rendering turns website code into the interactive pages
 // users see when they visit a website.
-
-// Path = Extracts the filename from a file path:
 
 // What is the use of require in js?
 // The JavaScript require function facilitates a way
 // to include JavaScript modules in your code.
+
+// Path = Extracts the filename from a file path:
 const path = require("path");
 const fs = require("fs");
 
 const templatesDir = path.resolve(__dirname, "../__dist");
 
 const render = (employees) => {
-
-  const html = []
+  const html = [];
 
   // The push() method adds one or more elements to the end of an array
   // and returns the new length of the array.
@@ -103,47 +105,7 @@ const renderIntern = (intern) => {
   return template;
 };
 
-
-// TODO: Create a function to write onto the html file
-// function createFile(fileName, data) {
-//   // Writes to the file with anything you pass in as process.argv[2]
-//   fs.writeFile(fileName, data, (err) =>
-//     // fs.writeFile(team.html, data, (err) =>
-//     err ? console.error(err) : console.log("Success!")
-//   );
-// }
-
-// // TODO: Create a function to initialize app
-// function init() {
-
-// inquirer.prompt(render).then((answers) => {
-//     console.log(answers);
-//     const teamHTML = templatesDir(answers);
-//     // Creates the file to write onto team.html
-//     createFile("../team.html", teamHTML);
-//   });
-// }
-
-// // Function call to initialize app
-// init();
-
-
-// // Show main.html
-// const renderMain = html => {
-//   const template = fs.readFileSync(path.resolve(templatesDir, "main.html"), "utf8");
-//   return replacePlaceholders(template, "team", html);
-// };
-
-// // RegExp Object = A regular expression is a pattern of characters.
-// const replacePlaceholders = (template, placeholder, value) => {
-//   const pattern = new RegExp("{{ " + placeholder + " }}", "gm");
-//   return template.replace(pattern, value);
-// };
-
-// module.exports = render;
-
-
-// // Show main.html
+// Show main.html
 const renderMain = (html) => {
   return `<!DOCTYPE html>
   <html lang="en">
@@ -182,6 +144,6 @@ const renderMain = (html) => {
       </div>
   </body>
   
-  </html>`
-}
+  </html>`;
+};
 module.exports = render;

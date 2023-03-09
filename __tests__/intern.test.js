@@ -4,7 +4,7 @@ test("Can set school via constructor", () => {
   const testValue = "UofA";
   // Foo is an intentionally meaningless placeholder 
   // word often used in computer programming.
-  const e = new Intern("Foo", 1, "test@example.com", testValue);
+  const e = new Intern("Foo", 1, "test@test.com", testValue);
   // Jest: Use .toBe to compare primitive values or to check referential identity 
   // of object instances. It calls Object.is to compare values, which is even 
   // better for testing than === strict equality operator.
@@ -15,7 +15,7 @@ test("getRole() should return \"Intern\"", () => {
   const testValue = "Intern";
   // Foo is an intentionally meaningless placeholder 
   // word often used in computer programming.
-  const e = new Intern("Foo", 1, "test@example.com", "UofA");
+  const e = new Intern("Foo", 1, "test@test.com", "UofA");
   // Jest: Use .toBe to compare primitive values or to check referential identity 
   // of object instances. It calls Object.is to compare values, which is even 
   // better for testing than === strict equality operator.
@@ -26,7 +26,7 @@ test("Can get school via getSchool()", () => {
   const testValue = "UofA";
   // Foo is an intentionally meaningless placeholder 
   // word often used in computer programming.
-  const e = new Intern("Foo", 1, "test@example.com", testValue);
+  const e = new Intern("Foo", 1, "test@test.com", testValue);
   // Jest: Use .toBe to compare primitive values or to check referential identity 
   // of object instances. It calls Object.is to compare values, which is even 
   // better for testing than === strict equality operator.
