@@ -16,9 +16,6 @@ profiles of their team members.
 You can find the link to the repository at:
 [Repository link](https://github.com/123sites/Team-Information.git)
 
-The link to the Markdown-Creator is at:
-[Markdown-Creator Link](https://123sites.github.io/Team-Information/)
-
 ## Usage
 
 This can be used by a manager to help them access information that
