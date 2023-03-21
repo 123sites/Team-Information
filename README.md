@@ -27,7 +27,7 @@ they need in-regards to the members of their team.
 
 ## Screenshot 🎯
 
-[Click here to see the screenshot](./Assets/images/Screenshot___dist_team.html.png)
+![Click here to see the screenshot](./Assets/images/Screenshot___dist_team.html.png)
 
 ## Credits 👈
 
